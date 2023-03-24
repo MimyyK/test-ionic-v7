@@ -16,13 +16,14 @@
       <div id="container">
         <ion-list>
           <ion-item>
-            <ion-input type="text" v-model="myField" label="My field v-model"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-input type="text" :value="myFieldValueOnInput" label="My field value+onInput" @input="event => myFieldValueOnInput = event.target.value"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-input type="text" :value="myFieldValueOnIonInput" label="My field value+onIonInput" @ion-input="event => myFieldValueOnIonInput = event.target.value"></ion-input>
+            <ion-input 
+              type="text"
+              error-text="My error message" 
+              :class="{'ion-invalid': myField === 'nope'}" 
+              v-model="myField" 
+              label="My field"
+              label-placement="floating"
+            ></ion-input>
           </ion-item>
         </ion-list>
       </div>
@@ -35,8 +36,6 @@ import { ref } from 'vue';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonInput, IonList, IonItem } from '@ionic/vue';
 
 const myField = ref('')
-const myFieldValueOnInput = ref('')
-const myFieldValueOnIonInput = ref('')
 </script>
 
 <style scoped>
